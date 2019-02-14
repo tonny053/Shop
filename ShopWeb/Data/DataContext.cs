@@ -1,5 +1,6 @@
 ﻿namespace ShopWeb.Data
 {
+    using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
     using ShopWeb.Data.Entities;
     using System;
@@ -7,8 +8,8 @@
     using System.Linq;
     using System.Threading.Tasks;
 
-
-    public class DataContext:DbContext
+    //<User> es mi clase modelo de User
+    public class DataContext:IdentityDbContext<User>
     {
         public DataContext(DbContextOptions<DataContext> options)
             :base(options)
