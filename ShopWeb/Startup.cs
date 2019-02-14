@@ -32,6 +32,16 @@ namespace ShopWeb
                 cfg.UseSqlServer(this.Configuration.GetConnectionString("DefaultConnection"));
             });
 
+            //Formas de iyectar
+            services.AddTransient<SeedDb>();
+            services.AddScoped<IRepository, Repository>();
+
+            //Preparacion para las pruebas unitarias, pudiendo pasar
+            //otro repositorio usando la misma Interface
+            //services.AddScoped<IRepository, MockRepository>();
+
+           
+
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
